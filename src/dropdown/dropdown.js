@@ -58,6 +58,10 @@ angular.module('ui.bootstrap.dropdown', [])
   this.init = function( element ) {
     self.$element = element;
 
+    self.$element.bind('click', function( evt ) {
+        evt.stopPropagation();
+    });
+
     if ( $attrs.isOpen ) {
       getIsOpen = $parse($attrs.isOpen);
       setIsOpen = getIsOpen.assign;
